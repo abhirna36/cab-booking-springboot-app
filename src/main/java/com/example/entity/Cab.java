@@ -6,9 +6,7 @@ package com.example.entity;
 import java.io.Serializable;
 import java.text.DecimalFormat;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -16,6 +14,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import lombok.Data;
@@ -51,7 +50,8 @@ public class Cab implements Serializable {
 
 	private String cabRideStatus;
 
-	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@OneToOne
+	@JsonManagedReference
 	@JoinColumn(name = "driverId")
 	private Driver driverDetails;
 

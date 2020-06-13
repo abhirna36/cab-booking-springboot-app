@@ -39,10 +39,6 @@ public class Booking implements Serializable {
 	private Cab cabDetails;
 
 	@OneToOne
-	@JoinColumn(name = "driverId")
-	private Driver driverDetails;
-
-	@OneToOne
 	@JoinColumn(name = "userId")
 	private User userDetails;
 

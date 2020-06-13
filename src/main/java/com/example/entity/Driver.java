@@ -7,12 +7,15 @@ import java.io.Serializable;
 import java.text.DecimalFormat;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import lombok.Data;
@@ -47,7 +50,9 @@ public class Driver implements Serializable {
 
 	private String rating;
 
-	@OneToOne
+	@OneToOne(fetch = FetchType.EAGER)
+	@JsonBackReference
+	@JsonIgnore
 	@JoinColumn(name = "cabId")
 	private Cab cabDetails;
 }

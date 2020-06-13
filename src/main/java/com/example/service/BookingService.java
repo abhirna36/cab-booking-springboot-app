@@ -16,5 +16,5 @@ public interface BookingService {
 	 * @param pincode
 	 * @return
 	 */
-	BookingOutputModel bookCab(String pincode);
+	BookingOutputModel bookCab(String pincode, String email);
 }

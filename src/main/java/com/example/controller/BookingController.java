@@ -23,9 +23,9 @@ public class BookingController {
 	BookingService bookingService;
 
 	@PostMapping(path = "/bookCab")
-	public ResponseEntity<BookingOutputModel> bookCab(@RequestParam String pinCode) {
+	public ResponseEntity<BookingOutputModel> bookCab(@RequestParam String pinCode, @RequestParam String email) {
 
-		BookingOutputModel bookingOutputModel = bookingService.bookCab(pinCode);
+		BookingOutputModel bookingOutputModel = bookingService.bookCab(pinCode, email);
 
 		return ResponseEntity.ok().body(bookingOutputModel);
 	}

@@ -4,18 +4,14 @@
 package com.example.entity;
 
 import java.io.Serializable;
-import java.text.DecimalFormat;
 
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import lombok.Data;
@@ -40,19 +36,17 @@ public class Driver implements Serializable {
 
 	private String name;
 
-	private Number phoneNumber;
+	private String phoneNumber;
 
-	private DecimalFormat latitude;
+	private String latitude;
 
-	private DecimalFormat longitude;
+	private String longitude;
 
 	private String status;
 
 	private String rating;
 
-	@OneToOne(fetch = FetchType.EAGER)
-	@JsonBackReference
-	@JsonIgnore
-	@JoinColumn(name = "cabId")
+	@OneToOne
+	@JoinColumn(name = "driverId")
 	private Cab cabDetails;
 }

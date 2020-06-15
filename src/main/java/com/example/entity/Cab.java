@@ -4,7 +4,6 @@
 package com.example.entity;
 
 import java.io.Serializable;
-import java.text.DecimalFormat;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,8 +12,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import lombok.Data;
@@ -25,7 +22,6 @@ import lombok.Data;
  */
 @Entity
 @Data
-@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 public class Cab implements Serializable {
 
 	/**
@@ -35,7 +31,7 @@ public class Cab implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@JsonProperty("userId")
+	@JsonProperty("cabId")
 	private Integer id;
 
 	private String name;
@@ -44,14 +40,13 @@ public class Cab implements Serializable {
 
 	private String pincode;
 
-	private DecimalFormat latitude;
+	private String latitude;
 
-	private DecimalFormat longitude;
+	private String longitude;
 
 	private String cabRideStatus;
 
 	@OneToOne
-	@JsonManagedReference
 	@JoinColumn(name = "driverId")
 	private Driver driverDetails;
 

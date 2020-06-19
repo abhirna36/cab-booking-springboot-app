@@ -40,11 +40,11 @@ public class Cab implements Serializable {
 
 	private String pincode;
 
-	private String latitude;
+	private Integer latitude;
 
-	private String longitude;
+	private Integer longitude;
 
-	private String cabRideStatus;
+	private boolean cabRideStatus;
 
 	@OneToOne
 	@JoinColumn(name = "driverId")

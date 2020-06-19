@@ -38,4 +38,9 @@ public class User implements Serializable {
 	private String email;
 
 	private String password;
+
+	private Integer homeLatitude;
+
+	private Integer homeLongitude;
+
 }

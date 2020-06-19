@@ -3,12 +3,13 @@
  */
 package com.example.entity;
 
-import java.io.Serializable;
+import java.sql.Timestamp;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -18,31 +19,27 @@ import lombok.Data;
  * @author apple
  *
  */
-@Data
 @Entity
-public class Driver implements Serializable {
-
+@Data
+public class Trip {
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = -678130277449867756L;
+	private static final long serialVersionUID = 1808418667603140890L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@JsonProperty("driverId")
+	@JsonProperty("tripId")
 	private Integer id;
 
-	private String name;
+	@JoinColumn(name = "userId")
+	private User userDetails;
 
-	private String phoneNumber;
+	private Timestamp startTime;
 
-	private Integer latitude;
+	private Timestamp endTime;
 
-	private Integer longitude;
+	@JoinColumn(name = "cabIdId")
+	private Cab cabDetails;
 
-	private String status;
-
-	private String rating;
-
-	private boolean avaliability;
 }

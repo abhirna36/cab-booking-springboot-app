@@ -12,7 +12,7 @@ import com.example.model.SigninInputModel;
  *
  */
 @Service
-public interface LoginService {
+public interface UserService {
 
 	/**
 	 * Method to add user

@@ -11,20 +11,17 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.model.SigninInputModel;
-import com.example.service.LoginService;
+import com.example.service.UserService;
 
 /**
  * @author apple
  *
  */
 @RestController
-public class LoginController {
-
-//	@Autowired
-//	private UserDao userDao;
+public class UserController {
 
 	@Autowired
-	LoginService loginService;
+	UserService loginService;
 
 	@PostMapping(path = "/addUser")
 	public ResponseEntity<Void> addNewUser(@RequestBody SigninInputModel signInInputModel) {
@@ -33,14 +30,6 @@ public class LoginController {
 
 		return ResponseEntity.noContent().build();
 	}
-
-//	@GetMapping(path = "/all")
-//	public ResponseEntity<List<User>> getAllUsers() {
-//
-//		List<User> userList = new ArrayList<>();
-//		userList.addAll(userDao.findAll());
-//		return ResponseEntity.ok().body(userList);
-//	}
 
 	@GetMapping(path = "/hello")
 	public ResponseEntity<String> getHello() {

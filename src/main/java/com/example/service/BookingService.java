@@ -13,8 +13,10 @@ public interface BookingService {
 
 	/**
 	 * 
-	 * @param pincode
+	 * @param latitude
+	 * @param longitude
+	 * @param email
 	 * @return
 	 */
-	BookingOutputModel bookCab(String pincode, String email);
+	BookingOutputModel bookCab(Integer latitude, Integer longitude, String email);
 }

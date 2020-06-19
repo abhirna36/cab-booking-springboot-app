@@ -6,10 +6,10 @@ import org.springframework.stereotype.Component;
 import com.example.dao.UserDao;
 import com.example.entity.User;
 import com.example.model.SigninInputModel;
-import com.example.service.LoginService;
+import com.example.service.UserService;
 
 @Component
-public class LoginServiceImpl implements LoginService {
+public class UserServiceImpl implements UserService {
 
 	@Autowired
 	UserDao userDao;
@@ -20,6 +20,8 @@ public class LoginServiceImpl implements LoginService {
 		user.setEmail(signInInputModel.getEmail());
 		user.setName(signInInputModel.getName());
 		user.setPassword(signInInputModel.getPassword());
+		user.setHomeLatitude(signInInputModel.getHomeLatitude());
+		user.setHomeLongitude(signInInputModel.getHomeLongitude());
 
 		userDao.save(user);
 	}

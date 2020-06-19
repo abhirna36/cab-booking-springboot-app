@@ -17,4 +17,6 @@ public interface CabDao extends JpaRepository<Cab, Integer> {
 
 	List<Cab> findByPincodeAndCabRideStatus(String pincode, String cabRideStatus);
 
+	List<Cab> findByCabRideStatus(boolean cabRideStatus);
+
 }

@@ -25,4 +25,8 @@ public class SigninInputModel {
 	@NotNull
 	@NotBlank
 	private String password;
+
+	private Integer homeLatitude;
+
+	private Integer homeLongitude;
 }
